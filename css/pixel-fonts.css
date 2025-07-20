@@ -1,0 +1,92 @@
+/* Pixel Font Styles for Retro Gaming Feel */
+@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
+
+/* Override default fonts with pixelated alternatives */
+body {
+    font-family: 'Press Start 2P', 'Courier New', monospace;
+    font-size: 12px;
+    line-height: 1.4;
+}
+
+/* Pixel-perfect text rendering */
+.game-title,
+.subtitle,
+.press-start,
+.npc-name,
+.shrine-title,
+.coming-soon {
+    font-family: 'Press Start 2P', monospace;
+    image-rendering: pixelated;
+    image-rendering: -moz-crisp-edges;
+    image-rendering: crisp-edges;
+}
+
+/* Specific font sizes for pixel font */
+.game-title {
+    font-size: 24px;
+    letter-spacing: 2px;
+}
+
+.subtitle {
+    font-size: 10px;
+    letter-spacing: 1px;
+}
+
+.press-start {
+    font-size: 8px;
+}
+
+.npc-name {
+    font-size: 10px;
+}
+
+.dialog-text {
+    font-family: 'Courier New', monospace;
+    font-size: 11px;
+    line-height: 1.5;
+}
+
+.character-stats .stat {
+    font-family: 'Courier New', monospace;
+    font-size: 10px;
+}
+
+.contact-item {
+    font-family: 'Courier New', monospace;
+    font-size: 9px;
+}
+
+.control-hint {
+    font-family: 'Courier New', monospace;
+    font-size: 8px;
+}
+
+/* Ensure pixel-perfect rendering */
+* {
+    -webkit-font-smoothing: none;
+    -moz-osx-font-smoothing: unset;
+    font-smooth: never;
+}
+
+/* Responsive font sizes */
+@media (max-width: 768px) {
+    .game-title {
+        font-size: 16px;
+    }
+    
+    .subtitle {
+        font-size: 8px;
+    }
+    
+    .press-start {
+        font-size: 7px;
+    }
+    
+    .npc-name {
+        font-size: 8px;
+    }
+    
+    .dialog-text {
+        font-size: 9px;
+    }
+}
