@@ -330,6 +330,80 @@ body::after {
     opacity: 0.7;
 }
 
+/* 3D Rotating Game Controller */
+.controller-3d {
+    position: relative;
+    width: 200px;
+    height: 120px;
+    margin: 20px auto;
+    perspective: 1000px;
+    transform-style: preserve-3d;
+}
+
+.controller-face {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    transform-style: preserve-3d;
+    animation: rotateY 8s infinite linear;
+    font-family: 'Courier New', monospace;
+    font-size: 14px;
+    color: var(--gameboy-green);
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(0, 0, 0, 0.8);
+    border: 2px solid var(--gameboy-green);
+    border-radius: 20px;
+    box-shadow: 0 0 20px rgba(139, 172, 15, 0.3);
+}
+
+.controller-face pre {
+    margin: 0;
+    line-height: 1.2;
+    text-shadow: 1px 1px 2px var(--gameboy-dark);
+}
+
+@keyframes rotateY {
+    0% {
+        transform: rotateY(0deg);
+    }
+    100% {
+        transform: rotateY(360deg);
+    }
+}
+
+/* Add depth effect with pseudo-elements */
+.controller-face::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, transparent 40%, rgba(139, 172, 15, 0.1) 50%, transparent 60%);
+    border-radius: 20px;
+    z-index: -1;
+}
+
+/* Pause animation on hover */
+.controller-3d:hover .controller-face {
+    animation-play-state: paused;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .controller-3d {
+        width: 150px;
+        height: 90px;
+    }
+
+    .controller-face {
+        font-size: 10px;
+    }
+}
+
 /* Responsive */
 @media (max-width: 768px) {
     #screen {
@@ -337,11 +411,11 @@ body::after {
         max-width: 400px;
         height: 300px;
     }
-    
+
     .game-title {
         font-size: 32px;
     }
-    
+
     .character-stats {
         grid-template-columns: 1fr;
     }
